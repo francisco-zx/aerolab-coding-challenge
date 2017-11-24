@@ -1,10 +1,12 @@
 import React from 'react';
 import HeroPoints from '../../header-points-x1.png';
+import Coins1000 from '../../coins/coins-1000.jpg';
+import Coins5000 from '../../coins/coins-5000.jpg';
+import Coins7500 from '../../coins/coins-7500.jpg';
 
 //components
-import LoadingBar from 'react-redux-loading-bar';
-import { showLoading, hideLoading } from 'react-redux-loading-bar'
 import Hero from '../layout/Hero';
+import PointsProduct from './PointsProduct';
 
 
 export default class Points extends React.Component{
@@ -38,9 +40,9 @@ export default class Points extends React.Component{
       <div>
         <Hero title="Redeem Points" herobg={HeroPoints}/>
         <div className="container">
-          <a className="btn btn-success" onClick={(amount) => this.buy()}>1000</a>
-          <a className="btn btn-success">5000</a>
-          <a className="btn btn-success">7500</a>
+          <PointsProduct amount={1000} img={Coins1000}/>
+          <PointsProduct amount={5000} img={Coins5000}/>
+          <PointsProduct amount={7500} img={Coins7500}/>
         </div>
       </div>
     );

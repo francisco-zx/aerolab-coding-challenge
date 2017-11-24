@@ -49,7 +49,7 @@ export default class Header extends React.Component{
           <div className="text-right col-xs-6 CurrentUser animated fadeIn">
             <div className="UserName text-right col-xs-hidden col-md-9 col-sm-8 animated fadeIn">{this.state.user.name}</div>
             <div className="dropdown">
-              <a className="UserCoins col-md-3 col-sm-4 dropdown-toggle" data-toggle="dropdown">
+              <a href="#" className="UserCoins col-md-3 col-sm-4 dropdown-toggle" data-toggle="dropdown">
                 <div className="UserCoinsNumber animated fadeIn" Style="animation-delay:0.3s">{this.state.user.points}</div>
                 <img className="UserCoinsIcon animated fadeIn" Style="animation-delay:0.5s" src={Coin} width="24px" height="24px"/>
               </a>
