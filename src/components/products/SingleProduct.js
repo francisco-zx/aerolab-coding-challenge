@@ -2,6 +2,7 @@ import React from 'react';
 
 //components
 import SingleProductImage from './SingleProductImage';
+import IsBuyable from './IsBuyable';
 
 export default class SingleProduct extends React.Component {
 
@@ -26,6 +27,7 @@ export default class SingleProduct extends React.Component {
                 <hr />
                 <small className="ProductCategory">{this.state.category}</small>
                 <div className="ProductName">{this.props.name}</div>
+                <IsBuyable cost={this.state.cost}/>
               </div>
             </div>
         )
