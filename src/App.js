@@ -4,6 +4,7 @@ import herobg from './header-x2.png';
 import './App.css';
 import { BrowserRouter as Router, Route, Link} from 'react-router-dom';
 //Components
+import User from './components/user/User';
 import Header from './components/layout/Header';
 import Hero from './components/layout/Hero';
 import ProductList from './components/products/ProductList';
@@ -14,13 +15,42 @@ const token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1YTE0OWNlM
 localStorage.setItem('apiToken',token);
 
 class App extends Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+      user: {}
+    }
+  }
+
+  componentWillMount(){
+    fetch(
+      'https://aerolab-challenge.now.sh/user/me',
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': localStorage.apiToken
+        }
+      }
+    )
+    .then(response => response.json())
+    .then(user => {
+      this.setState({
+        user: user
+      });
+    })
+  }
+
   render() {
     return (
       <div className="App">
+        <User />
         <Router>
           <div>
-            <Header logo={logo}/>
-            <Route path="/" exact={true} component={ProductList} />
+            <Header logo={logo} user={this.state.user}/>
+            <Route path="/" exact={true} render={()=><ProductList user={this.state.user}/>}/>
             <Route path="/user/points" exact={true} component={Points} />
             <Route path="/user/history" exact={true} component={History} />
           </div>
