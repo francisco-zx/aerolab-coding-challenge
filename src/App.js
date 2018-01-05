@@ -43,6 +43,27 @@ class App extends Component {
     })
   }
 
+
+  updateUser = () => {
+    fetch(
+      'https://aerolab-challenge.now.sh/user/me',
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': localStorage.apiToken
+        }
+      }
+    )
+    .then(response => response.json())
+    .then(user => {
+      this.setState({
+        user: user
+      });
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -50,7 +71,7 @@ class App extends Component {
         <Router>
           <div>
             <Header logo={logo} user={this.state.user}/>
-            <Route path="/" exact={true} render={()=><ProductList user={this.state.user}/>}/>
+            <Route path="/" exact={true} render={()=><ProductList user={this.state.user} updateUser={this.updateUser}/>}/>
             <Route path="/user/points" exact={true} component={Points} />
             <Route path="/user/history" exact={true} component={History} />
           </div>

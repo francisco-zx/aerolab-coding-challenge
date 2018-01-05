@@ -11,9 +11,6 @@ export default class IsBuyable extends React.Component {
     }
 
 
-    notify = () => toast("Wow so easy !");
-
-
     redeem = () => {
       fetch('https://aerolab-challenge.now.sh/redeem', {
         method: 'POST',
@@ -25,8 +22,8 @@ export default class IsBuyable extends React.Component {
         body: JSON.stringify({'productId': this.props.productId})
       }).then(res=>res.json())
         .then(res => console.log(res))
-        .then(res => toast(this.props.productName + ' succesfully redeemed 😎'));
-        console.log(JSON.stringify({'productId': this.props.productId}))
+        .then(res => toast(this.props.productName + ' succesfully redeemed 😎'))
+        .then(res => this.props.updateUser());
     }
 
 

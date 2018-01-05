@@ -13,8 +13,7 @@ export default class IsBuyable extends React.Component {
             'top': 0,
             'right': 0,
             'padding': 12
-          },
-          userPoints: this.props.user.points
+          }
         }
     }
 
@@ -22,7 +21,7 @@ export default class IsBuyable extends React.Component {
         return (
           <div className="IsBuyable" style={this.state.style}>
             {
-              this.state.userPoints >= this.props.cost ?
+              this.props.user.points >= this.props.cost ?
               <div>
                 <img
                   className="UserCoinsIcon animated fadeIn"
@@ -40,7 +39,7 @@ export default class IsBuyable extends React.Component {
               <div
                 className="IsNotBuyable animated fadeIn"
                 Style="animation-delay:0.2s;margin-left:4px;">
-                You need  {this.props.cost - this.state.userPoints}
+                You need  {this.props.cost - this.props.user.points}
                 <img
                   className="UserCoinsIcon animated fadeIn"
                   Style="animation-delay:0.5s;margin-left:4px;"

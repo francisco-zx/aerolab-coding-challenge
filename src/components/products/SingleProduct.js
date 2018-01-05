@@ -45,8 +45,8 @@ export default class SingleProduct extends React.Component {
                 <div className="ProductName">{this.props.name}</div>
                 <IsBuyable cost={this.state.cost} hover={this.state.hover} user={this.props.user}/>
                 {
-                  this.state.cost <= this.state.user.points ?
-                  <SingleProductHover productId={this.state.id} productCost={this.state.cost} productName={this.state.name}/>
+                  this.state.cost <= this.props.user.points ?
+                  <SingleProductHover productId={this.state.id} productCost={this.state.cost} productName={this.state.name} updateUser={this.props.updateUser}/>
                   :''
                 }
               </div>

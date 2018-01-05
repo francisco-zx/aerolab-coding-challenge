@@ -18,6 +18,10 @@ export default class IsBuyable extends React.Component {
         }
     }
 
+    updateUser = () => {
+      this.props.updateUser();
+    }
+
     render() {
         return (
           <div className="SingleProductHover" style={this.state.style}>
@@ -28,7 +32,7 @@ export default class IsBuyable extends React.Component {
                 width="48px"
                 height="48px"
               /></h3>
-              <SingleProductRedeem productId={this.props.productId} productName={this.props.productName}/>
+              <SingleProductRedeem productId={this.props.productId} productName={this.props.productName} updateUser={this.props.updateUser}/>
             </div>
           </div>
         )

@@ -16,14 +16,17 @@ export default class ProductList extends React.Component{
       products: {},
       imageStatus: 'loading',
       recentProducts: {},
-      activeFilter: 0
+      activeFilter: null
     }
   };
 
   sortByRecent = () => {
     let recentProducts = this.state.recentProducts;
+    console.log(recentProducts);
     this.setState({
-      products: recentProducts,
+      products: this.state.products.sort(function(a,b){
+        return b.id - a.id;
+      }),
       activeFilter: 0
     })
   }
@@ -35,8 +38,6 @@ export default class ProductList extends React.Component{
       }),
       activeFilter: 1
     })
-    console.log(this.state.products);
-
   }
 
   sortByHighest = () => {
@@ -46,8 +47,6 @@ export default class ProductList extends React.Component{
       }),
       activeFilter: 2
     })
-    console.log(this.state.products);
-
   }
 
   componentWillMount(){
@@ -68,7 +67,6 @@ export default class ProductList extends React.Component{
           products: products,
           recentProducts: products
         })
-        console.log(this.state.recentProducts);
       });
   }
 
@@ -77,14 +75,19 @@ export default class ProductList extends React.Component{
       <div>
         <Hero title="Electronics" herobg={HeroProducts}/>
         <div className="container">
-          <div className="FiltersBox animated fadeIn">
-            <div className="ProductQuantity clearfix">{this.state.products.length ? this.state.products.length : '00'} of {this.state.products.length ? this.state.products.length : '00'} products</div>
-            <div className="SortBy">Sort By:</div>
-            <div className={this.state.activeFilter === 0 ? 'Filters active' : 'Filters' } onClick={this.sortByRecent}>Most Recent</div>
-            <div className={this.state.activeFilter === 1 ? 'Filters active' : 'Filters' } onClick={this.sortByLowest}>Lowest Price</div>
-            <div className={this.state.activeFilter === 2 ? 'Filters active' : 'Filters' } onClick={this.sortByHighest}>Highest Price</div>
-          </div>
-          <hr className="col-xs-12"/>
+          {
+            this.state.products.length ?
+            <div className="FiltersBox animated fadeIn">
+              <div className="ProductQuantity clearfix">{this.state.products.length ? this.state.products.length : '00'} of {this.state.products.length ? this.state.products.length : '00'} products</div>
+              <div className="SortBy">Sort By:</div>
+              <div className={this.state.activeFilter === 0 ? 'Filters active' : 'Filters' } onClick={this.sortByRecent}>Most Recent</div>
+              <div className={this.state.activeFilter === 1 ? 'Filters active' : 'Filters' } onClick={this.sortByLowest}>Lowest Price</div>
+              <div className={this.state.activeFilter === 2 ? 'Filters active' : 'Filters' } onClick={this.sortByHighest}>Highest Price</div>
+              <hr className="col-xs-12"/>
+            </div>
+
+            :''
+          }
           <div className="ProductList">
           {
           this.state.products.length ?
@@ -99,6 +102,7 @@ export default class ProductList extends React.Component{
                     category={p.category}
                     img={p.img.url}
                     user={this.props.user}
+                    updateUser={this.props.updateUser}
                 />
               )
           })
