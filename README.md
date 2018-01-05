@@ -2,5 +2,5 @@
 Aerolab Coding Challenge.
 
 
-Live Demo at: http://aerolab.zetaequis.com
-Last Commit Online: https://github.com/francisco-zx/aerolab-coding-challenge/commit/d098037cccef34fca7a98bf3fafdf1347de82a59  
+Live Demo at: http://aerolab.zetaequis.com <br />
+Last Commit Online: https://github.com/francisco-zx/aerolab-coding-challenge/commit/3e766ecc79a877cd0e40cfa870422d01e61970f2
