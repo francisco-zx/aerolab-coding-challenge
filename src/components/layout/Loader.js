@@ -13,7 +13,7 @@ export default class Loader extends React.Component {
   render() {
     return (
       <div className="">
-        <img src={logo} width="100px" className="animated infinite bounce Loader"/>
+        <img src={logo} width="100px" className="animated infinite bounce Loader" alt=""/>
         <h3 className="LoaderText">{this.props.text}</h3>
       </div>
     );

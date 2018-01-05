@@ -80,9 +80,9 @@ export default class ProductList extends React.Component{
           <div className="FiltersBox animated fadeIn">
             <div className="ProductQuantity clearfix">{this.state.products.length ? this.state.products.length : '00'} of {this.state.products.length ? this.state.products.length : '00'} products</div>
             <div className="SortBy">Sort By:</div>
-            <div className={this.state.activeFilter == 0 ? 'Filters active' : 'Filters' } onClick={this.sortByRecent}>Most Recent</div>
-            <div className={this.state.activeFilter == 1 ? 'Filters active' : 'Filters' } onClick={this.sortByLowest}>Lowest Price</div>
-            <div className={this.state.activeFilter == 2 ? 'Filters active' : 'Filters' } onClick={this.sortByHighest}>Highest Price</div>
+            <div className={this.state.activeFilter === 0 ? 'Filters active' : 'Filters' } onClick={this.sortByRecent}>Most Recent</div>
+            <div className={this.state.activeFilter === 1 ? 'Filters active' : 'Filters' } onClick={this.sortByLowest}>Lowest Price</div>
+            <div className={this.state.activeFilter === 2 ? 'Filters active' : 'Filters' } onClick={this.sortByHighest}>Highest Price</div>
           </div>
           <hr className="col-xs-12"/>
           <div className="ProductList">

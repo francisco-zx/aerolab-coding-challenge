@@ -1,7 +1,5 @@
 import React from 'react';
 import Coin from '../../icons/coin.svg';
-import BuyWhite from '../../icons/buy-white.svg';
-import BuyBlue from '../../icons/buy-blue.svg';
 import SingleProductRedeem from './SingleProductRedeem';
 
 export default class IsBuyable extends React.Component {
@@ -17,7 +15,6 @@ export default class IsBuyable extends React.Component {
             'top': 0,
             'left': 0
           }
-
         }
     }
 
@@ -25,13 +22,13 @@ export default class IsBuyable extends React.Component {
         return (
           <div className="SingleProductHover" style={this.state.style}>
             <div className="SingleProductHoverContent text-center">
-              <h3 className="SingleProductHoverCost">{this.props.productCost}<img
+              <h3 className="SingleProductHoverCost animated fadeIn">{this.props.productCost}<img
                 className="UserCoinsIcon animated fadeIn"
                 src={Coin}
-                width="24px"
-                height="24px"
+                width="48px"
+                height="48px"
               /></h3>
-              <SingleProductRedeem productId={this.props.productId}/>
+              <SingleProductRedeem productId={this.props.productId} productName={this.props.productName}/>
             </div>
           </div>
         )

@@ -9,6 +9,10 @@
             <stop stop-color="#FF6600" offset="100%"></stop>
         </linearGradient>
     </defs>
+    <style>
+      #top { animation: 5s strokefill alternate; stroke-width: 0.4 }
+
+    </style>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Catalog" transform="translate(-16.000000, -16.000000)" fill="url(#linearGradient-1)">
             <g id="top">

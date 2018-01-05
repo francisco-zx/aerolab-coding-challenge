@@ -4,7 +4,6 @@ import React from 'react';
 import SingleProductImage from './SingleProductImage';
 import SingleProductHover from './SingleProductHover';
 import IsBuyable from './IsBuyable';
-import User from '../user/User';
 
 
 export default class SingleProduct extends React.Component {
@@ -24,12 +23,10 @@ export default class SingleProduct extends React.Component {
     }
 
     mouseOut() {
-    console.log('mouseout')
     this.setState({hover: false});
     }
 
     mouseOver() {
-    console.log('mousein')
     this.setState({hover: true});
     }
 
@@ -47,11 +44,11 @@ export default class SingleProduct extends React.Component {
                 <small className="ProductCategory">{this.state.category}</small>
                 <div className="ProductName">{this.props.name}</div>
                 <IsBuyable cost={this.state.cost} hover={this.state.hover} user={this.props.user}/>
-                  {
-                    this.state.cost <= this.state.user.points ?
-                    <SingleProductHover productId={this.state.id} productCost={this.state.cost}/> :
-                    ''
-                  }
+                {
+                  this.state.cost <= this.state.user.points ?
+                  <SingleProductHover productId={this.state.id} productCost={this.state.cost} productName={this.state.name}/>
+                  :''
+                }
               </div>
             </div>
         )

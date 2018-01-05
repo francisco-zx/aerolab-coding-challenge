@@ -34,6 +34,7 @@ export default class IsBuyable extends React.Component {
                   }
                   width="42px"
                   height="42px"
+                  alt=""
                   />
                 </div> :
               <div
@@ -46,6 +47,7 @@ export default class IsBuyable extends React.Component {
                   src={Coin}
                   width="24px"
                   height="24px"
+                  alt=""
                 />
               </div>
             }

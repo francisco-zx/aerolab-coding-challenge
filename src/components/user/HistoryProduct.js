@@ -2,7 +2,6 @@ import React from 'react';
 import Coin from '../../icons/coin.svg';
 
 //components
-import SingleProductImage from '../products/SingleProductImage'
 
 export default class Hero extends React.Component {
 

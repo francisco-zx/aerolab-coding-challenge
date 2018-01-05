@@ -11,7 +11,7 @@ export default class SingleProduct extends React.Component {
 
     render() {
         return (
-            <img src={this.state.url} width="100%" height="auto"/>
+            <img src={this.state.url} width="100%" height="auto" alt=""/>
         )
     }
 
